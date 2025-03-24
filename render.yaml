@@ -1,0 +1,24 @@
+        sync: false
+      - key: GOOGLE_WALLET_SERVICE_ACCOUNT
+        sync: false
+      - key: PORT
+        value: 5002
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /test-wallet
+    autoDeploy: true
+
+  - type: web
+    name: virtual-id-frontend
+    env: node
+    buildCommand: cd Code-a-Thon && npm install && npm run build
+    startCommand: cd Code-a-Thon && npm run start
+    envVars:
+      - key: VITE_SENDGRID_API_KEY
+        sync: false
+      - key: VITE_SENDGRID_FROM_EMAIL
+        sync: false
+      - key: VITE_API_URL
+        sync: false
+    healthCheckPath: /
+    autoDeploy: true
