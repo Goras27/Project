@@ -1,6 +1,14 @@
-        sync: false
+services:
+  - type: web
+    name: virtual-id-backend
+    env: node
+    buildCommand: cd Backend && npm install
+    startCommand: cd Backend && npm start
+    envVars:
+      - key: SENDGRID_API_KEY
+      - key: GOOGLE_WALLET_ISSUER_ID
+      - key: GOOGLE_WALLET_SERVICE_ACCOUNT_EMAIL
       - key: GOOGLE_WALLET_SERVICE_ACCOUNT
-        sync: false
       - key: PORT
         value: 5002
       - key: NODE_ENV
@@ -15,10 +23,7 @@
     startCommand: cd Code-a-Thon && npm run start
     envVars:
       - key: VITE_SENDGRID_API_KEY
-        sync: false
       - key: VITE_SENDGRID_FROM_EMAIL
-        sync: false
       - key: VITE_API_URL
-        sync: false
     healthCheckPath: /
     autoDeploy: true
