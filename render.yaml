@@ -6,9 +6,13 @@ services:
     startCommand: cd Backend && npm start
     envVars:
       - key: SENDGRID_API_KEY
+        value: your-sendgrid-api-key
       - key: GOOGLE_WALLET_ISSUER_ID
+        value: your-wallet-issuer-id
       - key: GOOGLE_WALLET_SERVICE_ACCOUNT_EMAIL
+        value: your-service-account-email
       - key: GOOGLE_WALLET_SERVICE_ACCOUNT
+        value: your-service-account-json
       - key: PORT
         value: 5002
       - key: NODE_ENV
@@ -23,7 +27,10 @@ services:
     startCommand: cd Code-a-Thon && npm run start
     envVars:
       - key: VITE_SENDGRID_API_KEY
+        value: your-sendgrid-api-key
       - key: VITE_SENDGRID_FROM_EMAIL
+        value: your-sendgrid-email
       - key: VITE_API_URL
+        value: https://virtual-id-backend.onrender.com
     healthCheckPath: /
     autoDeploy: true
